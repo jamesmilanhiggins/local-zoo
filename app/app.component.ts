@@ -1,32 +1,20 @@
 import { Component } from '@angular/core';
-// import { Keg } from './keg.model';
+import { Animal } from './animal.model';
 
 @Component({
   selector: 'app-root',
   template: `
    <h1>Portland Zoo</h1>
-   <div *ngFor="let animal of animals">
-    <h2> Animal Details</h2>
-    <p>{{animal.species}}</p>
-    <p>{{animal.name}}</p>
-    <p>{{animal.age}}</p>
-    <p>{{animal.diet}}</p>
-    <p>{{animal.location}}</p>
-    <p>{{animal.caretakers}}</p>
-    <p>{{animal.sex}}</p>
-    <p>{{animal.like}}</p>
-    <p>{{animal.dislike}}</p>
-  </div>
+   <list-animal></list-animal>
+  
   `
 })
 
 export class AppComponent {
   animals: Animal[] = [
-    new Animal('Arctic Fox', 'Moon', 2, 'Carnivore', 'Northern Trail', 5, 'Female', 'cool shade', 'loud noises')
+    new Animal('Arctic Fox', 'Moon', 2, 'Carnivore', 'Northern Trail', 5, 'Female', 'cool shade', 'loud noises'),
+    new Animal('Arctic Fox2', 'Moon2', 22, 'Carnivore2', 'Northern Trail2', 52, 'Female2', 'cool shade2', 'loud noises2'),
+    new Animal('Arctic Fox3', 'Moon3', 23, 'Carnivore3', 'Northern Trail3', 53, 'Female3', 'cool shade3', 'loud noises3')
   ];
 
-}
-
-export class Animal {
-  constructor (public species: string, public name: string, public age: number, public diet: string, public location: string, public caretakers: number, public sex: string, public like: string, public dislike: string) {}
 }

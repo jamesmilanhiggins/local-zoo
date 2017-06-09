@@ -5,11 +5,12 @@ import { FormsModule }  from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
+import { ListAnimalComponent } from './list-animal.component';
 
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent],
+  declarations: [ AppComponent, ListAnimalComponent],
   bootstrap: [ AppComponent ]
 })
 
