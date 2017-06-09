@@ -56,5 +56,5 @@ _Please contact James Higgins at James.Milan.Higgins@gmail.com if you have any q
 
 Copyright (c) 2017 **_James Higgins_**
 
-![Screenshot One](close-up.png)
 ![Screenshot One](home-page-screenshot.png)
+![Screenshot One](close-up.png)
