@@ -4,11 +4,12 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'app-root',
   template: `
-   <h1>Portland Zoo</h1>
+   <h1>The Epicodus Zoo</h1>
    <new-animal (newAnimalSender)="storeNewAnimal($event)"></new-animal>
-   <list-animal [childAnimals]="animals" (editAnimalSender)="editAnimal($event)" (deleteAnimalSender)="deleteAnimal($event)"></list-animal>
+   <hr>
    <edit-animal *ngIf="edit" [childAnimal]="selectedAnimal"></edit-animal>
-   <h3>Number of Care Takers required:  <h3>
+   <hr>
+   <list-animal [childAnimals]="animals" (editAnimalSender)="editAnimal($event)" (deleteAnimalSender)="deleteAnimal($event)"></list-animal>
   `
 })
 
@@ -23,6 +24,7 @@ export class AppComponent {
     new Animal('Cheetah', 'Chester', 23, 'Herbivore', 'The Desert', 5, 'male', 'Cheetos', 'Doritos'),
     new Animal('Northwest Black Tailed Deer', 'Tinkerbell', 8, 'Herbivore', 'Northern Trail', 2, 'female', 'Delicate roots and leaves', 'loud noises')
   ];
+
 
   edit: boolean = false;
   selectedAnimal = null;

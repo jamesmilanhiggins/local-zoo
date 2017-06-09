@@ -4,7 +4,6 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'list-animal',
   template:`
-  <h1>Animals ROUTE 4444TEST</h1>
   <label>Filter Animals by Age</label>
   <select (change)="onChangeAge($event.target.value)">
     <option value="allAges" selected="selected"> All Ages</option>
@@ -18,29 +17,32 @@ import { Animal } from './animal.model';
     <option value="female">Female</option>
   </select>
   <select (change)="onChangeFeatured($event.target.value)">
-    <option value="allAnimals">All Animals</option>
+    <option value="allAnimals" selected="selected">All Animals</option>
     <option value="featuredAnimals">Featured Animals</option>
-    <option value="nonfeaturedAnimals" selected="selected">Non-Featured Animals</option>
+    <option value="nonfeaturedAnimals">Non-Featured Animals</option>
   </select>
+  <div class="animal-div">
+    <div *ngFor="let animal of childAnimals | age:filterByAge | sex:filterBySex | featured:filterByFeatured" >
+     <h2> Animal Details</h2>
+     <label>Click to feature this animal</label>
+     <input *ngIf="animal.featured === true" type="checkbox" checked (click)="toggleFeatured(animal, false)"/>
+     <input *ngIf="animal.featured === false" type="checkbox" (click)="toggleFeatured(animal, true)"/>
 
-  <div *ngFor="let animal of childAnimals | age:filterByAge | sex:filterBySex | featured:filterByFeatured" >
-   <h2> Animal Details</h2>
-   <label>Click to faeture this animal</label>
-   <input *ngIf="animal.featured === true" type="checkbox" checked (click)="toggleFeatured(animal, false)"/>
-   <input *ngIf="animal.featured === false" type="checkbox" (click)="toggleFeatured(animal, true)"/>
-
-   <p>{{animal.species}}</p>
-   <p>{{animal.name}}</p>
-   <p>{{animal.age}}</p>
-   <p>{{animal.diet}}</p>
-   <p>{{animal.location}}</p>
-   <p>{{animal.caretakers}}</p>
-   <p>{{animal.sex}}</p>
-   <p>{{animal.like}}</p>
-   <p>{{animal.dislike}}</p>
-   <button (click)="editAnimal(animal)">Edit Animal</button>
-   <button (click)="deleteAnimal(animal)">Delete Animal</button>
- </div>
+     <p>Species: {{animal.species}}</p>
+     <p>Name: {{animal.name}}</p>
+     <p>Age: {{animal.age}}</p>
+     <p>Diet: {{animal.diet}}</p>
+     <p>Location in the Zoo: {{animal.location}}</p>
+     <p>Amount of Caretakers required: {{animal.caretakers}}</p>
+     <p>Gender: {{animal.sex}}</p>
+     <p>Likes: {{animal.like}}</p>
+     <p>Dislikes: {{animal.dislike}}</p>
+     <button class=" btn btn-warning btn-sm"(click)="editAnimal(animal)">Edit Animal</button>
+     <button class="btn btn-danger btn-sm" (click)="deleteAnimal(animal)">Delete Animal</button>
+   </div>
+   <br>
+   <hr>
+  </div>
 
   `
 })

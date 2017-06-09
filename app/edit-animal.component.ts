@@ -4,7 +4,6 @@ import { Animal } from './animal.model';
 @Component({
   selector:'edit-animal',
   template: `
-  <h1>EDIT COMPONENT LINKING TEST</h1>
   <label>Species:</label>
   <input [(ngModel)]="childAnimal.species" name="species">
   <label>Name:</label>
