@@ -5,7 +5,7 @@ import { Animal } from './animal.model';
   selector: 'list-animal',
   template:`
   <h1>Animals ROUTE 4444TEST</h1>
-  <div *ngFor="let animal of animals">
+  <div *ngFor="let animal of childAnimals">
    <h2> Animal Details</h2>
    <p>{{animal.species}}</p>
    <p>{{animal.name}}</p>
@@ -22,5 +22,5 @@ import { Animal } from './animal.model';
 })
 
 export class ListAnimalComponent {
-
+  @Input() childAnimals: Animal[];
 }

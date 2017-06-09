@@ -5,8 +5,8 @@ import { Animal } from './animal.model';
   selector: 'app-root',
   template: `
    <h1>Portland Zoo</h1>
-   <list-animal></list-animal>
-  
+   <list-animal [childAnimals]="animals"></list-animal>
+
   `
 })
 
