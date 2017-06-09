@@ -17,9 +17,18 @@ import { Animal } from './animal.model';
     <option value="male">Male</option>
     <option value="female">Female</option>
   </select>
+  <select (change)="onChangeFeatured($event.target.value)">
+    <option value="allAnimals">All Animals</option>
+    <option value="featuredAnimals">Featured Animals</option>
+    <option value="nonfeaturedAnimals" selected="selected">Non-Featured Animals</option>
+  </select>
 
-  <div *ngFor="let animal of childAnimals | age:filterByAge | sex:filterBySex">
+  <div *ngFor="let animal of childAnimals | age:filterByAge | sex:filterBySex | featured:filterByFeatured" >
    <h2> Animal Details</h2>
+   <label>Click to faeture this animal</label>
+   <input *ngIf="animal.featured === true" type="checkbox" checked (click)="toggleFeatured(animal, false)"/>
+   <input *ngIf="animal.featured === false" type="checkbox" (click)="toggleFeatured(animal, true)"/>
+
    <p>{{animal.species}}</p>
    <p>{{animal.name}}</p>
    <p>{{animal.age}}</p>
@@ -43,6 +52,7 @@ export class ListAnimalComponent {
 
 filterByAge: string = "allAges";
 filterBySex: string = "allGenders";
+filterByFeatured: string = "allAnimals";
 
   editAnimal(animal) {
     this.editAnimalSender.emit(animal);
@@ -56,6 +66,10 @@ filterBySex: string = "allGenders";
   onChangeSex(optionFromMenu) {
     this.filterBySex = optionFromMenu;
   }
-
-
+  onChangeFeatured(optionFromMenu) {
+    this.filterByFeatured = optionFromMenu;
+  }
+  toggleFeatured(animal: Animal, setFeatured: boolean) {
+    animal.featured = setFeatured;
+  }
  }
