@@ -23,6 +23,7 @@ import { Animal } from './animal.model';
   <input [(ngModel)]="childAnimal.like" name="like">
   <label>Dislike:</label>
   <input [(ngModel)]="childAnimal.dislike" name="dislike">
+
   `
 })
 

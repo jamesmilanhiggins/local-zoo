@@ -7,6 +7,7 @@ import { Animal } from './animal.model';
    <h1>Portland Zoo</h1>
    <list-animal [childAnimals]="animals" (editAnimalSender)="editAnimal($event)"></list-animal>
    <edit-animal *ngIf="edit" [childAnimal]="selectedAnimal"></edit-animal>
+   <new-animal (newAnimalSender)="storeNewAnimal($event)"></new-animal>
 
   `
 })
@@ -24,6 +25,10 @@ export class AppComponent {
   editAnimal(animal) {
     this.edit = true;
     this.selectedAnimal = animal;
+  }
+
+  storeNewAnimal(createdanimal) {
+    this.animals.push(createdanimal);
   }
 
 }
