@@ -17,6 +17,7 @@ import { Animal } from './animal.model';
    <p>{{animal.like}}</p>
    <p>{{animal.dislike}}</p>
    <button (click)="editAnimal(animal)">Edit Animal</button>
+   <button (click)="deleteAnimal(animal)">Delete Animal</button>
  </div>
 
   `
@@ -25,8 +26,12 @@ import { Animal } from './animal.model';
 export class ListAnimalComponent {
   @Input() childAnimals: Animal[];
   @Output() editAnimalSender = new EventEmitter;
+  @Output() deleteAnimalSender = new EventEmitter;
 
   editAnimal(animal) {
     this.editAnimalSender.emit(animal);
+  }
+  deleteAnimal(animal) {
+    this.deleteAnimalSender.emit(animal);
   }
 }

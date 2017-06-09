@@ -5,9 +5,9 @@ import { Animal } from './animal.model';
   selector: 'app-root',
   template: `
    <h1>Portland Zoo</h1>
-   <list-animal [childAnimals]="animals" (editAnimalSender)="editAnimal($event)"></list-animal>
-   <edit-animal *ngIf="edit" [childAnimal]="selectedAnimal"></edit-animal>
    <new-animal (newAnimalSender)="storeNewAnimal($event)"></new-animal>
+   <list-animal [childAnimals]="animals" (editAnimalSender)="editAnimal($event)" (deleteAnimalSender)="deleteAnimal($event)"></list-animal>
+   <edit-animal *ngIf="edit" [childAnimal]="selectedAnimal"></edit-animal>
 
   `
 })
@@ -29,6 +29,11 @@ export class AppComponent {
 
   storeNewAnimal(createdanimal) {
     this.animals.push(createdanimal);
+  }
+
+  deleteAnimal(animal) {
+    var i = this.animals.indexOf(animal);
+    this.animals.splice(i, 1);
   }
 
 }
