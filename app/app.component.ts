@@ -27,7 +27,6 @@ export class AppComponent {
     new Animal('Northwest Black Tailed Deer', 'Tinkerbell', 8, 'Herbivore', 'Northern Trail', 2, 'female', 'Delicate roots and leaves', 'loud noises')
   ];
 
-
   edit: boolean = false;
   selectedAnimal = null;
 
@@ -35,14 +34,11 @@ export class AppComponent {
     this.edit = true;
     this.selectedAnimal = animal;
   }
-
   storeNewAnimal(createdanimal) {
     this.animals.push(createdanimal);
   }
-
   deleteAnimal(animal) {
     var i = this.animals.indexOf(animal);
     this.animals.splice(i, 1);
   }
-
 }

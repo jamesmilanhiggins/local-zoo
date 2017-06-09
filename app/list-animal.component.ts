@@ -26,8 +26,6 @@ import { Animal } from './animal.model';
 
   <div *ngFor="let animal of childAnimals | age:filterByAge | sex:filterBySex | featured:filterByFeatured" >
     <div class="animal-div">
-
-
      <h3>Name: {{animal.name}}</h3>
      <label>Check to feature this animal</label>
      <input *ngIf="animal.featured === true" type="checkbox" checked (click)="toggleFeatured(animal, false)"/>
@@ -45,7 +43,6 @@ import { Animal } from './animal.model';
      <hr>
    </div>
    <br>
-
 </div>
 
   `
