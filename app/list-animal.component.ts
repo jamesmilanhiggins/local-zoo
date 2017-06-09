@@ -16,6 +16,7 @@ import { Animal } from './animal.model';
    <p>{{animal.sex}}</p>
    <p>{{animal.like}}</p>
    <p>{{animal.dislike}}</p>
+   <button (click)="editAnimal(animal)">Edit Animal</button>
  </div>
 
   `
@@ -23,4 +24,9 @@ import { Animal } from './animal.model';
 
 export class ListAnimalComponent {
   @Input() childAnimals: Animal[];
+  @Output() editAnimalSender = new EventEmitter;
+
+  editAnimal(animal) {
+    this.editAnimalSender.emit(animal);
+  }
 }
