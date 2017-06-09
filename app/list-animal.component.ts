@@ -5,7 +5,17 @@ import { Animal } from './animal.model';
   selector: 'list-animal',
   template:`
   <h1>Animals ROUTE 4444TEST</h1>
-  <div *ngFor="let animal of childAnimals">
+  <select (change)="onChangeAge($event.target.value)">
+    <option value="allAges" selected="selected"> All Ages</option>
+    <option value="youngAnimals">Young Animals</option>
+    <option value="matureAnimals">Mature</option>
+  </select>
+
+
+
+
+
+  <div *ngFor="let animal of childAnimals | age:filterByAge">
    <h2> Animal Details</h2>
    <p>{{animal.species}}</p>
    <p>{{animal.name}}</p>
@@ -28,10 +38,17 @@ export class ListAnimalComponent {
   @Output() editAnimalSender = new EventEmitter;
   @Output() deleteAnimalSender = new EventEmitter;
 
+filterByAge: string = "allAges";
+
   editAnimal(animal) {
     this.editAnimalSender.emit(animal);
   }
   deleteAnimal(animal) {
     this.deleteAnimalSender.emit(animal);
   }
-}
+  onChangeAge(optionFromMenu) {
+    this.filterByAge = optionFromMenu;
+  }
+
+
+ }

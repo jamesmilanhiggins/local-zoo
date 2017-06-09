@@ -12,7 +12,7 @@ import { Animal } from './animal.model';
   <label>Age:</label>
   <input [(ngModel)]="childAnimal.age" name="age">
   <label>Diet:</label>
-  <input [(ngModel)]="childAnimal.diet" name="ddiet">
+  <input [(ngModel)]="childAnimal.diet" name="diet">
   <label>Zoo Location:</label>
   <input [(ngModel)]="childAnimal.location" name="location">
   <label>Number of Caretakers:</label>
