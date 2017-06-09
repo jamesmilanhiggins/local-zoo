@@ -18,7 +18,7 @@ import { Animal } from './animal.model';
   <label>Number of Caretakers:</label>
   <input #newCaretaker>
   <label>Sex:</label>
-  <input #newSex>
+  <input #newSex placeholder="male or female">
   <label>Like:</label>
   <input #newLike>
   <label>Dislike:</label>

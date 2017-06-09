@@ -2,24 +2,24 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Animal } from './animal.model';
 
 @Pipe({
-  name: "age",
+  name: "sex",
   pure: false
 })
 
 
-export class AnimalAgePipe implements PipeTransform{
-  transform(input: Animal[], desiredAge){
+export class SexPipe implements PipeTransform{
+  transform(input: Animal[], sex){
     var output: Animal[] = [];
-    if(desiredAge === "youngAnimals") {
+    if(sex === "male") {
       for (var i = 0; i < input.length; i++) {
-        if (input[i].age === 1) {
+        if (input[i].sex === sex) {
           output.push(input[i]);
         }
       }
     return output;
-  } else if (desiredAge === "matureAnimals") {
+  } else if (sex === "female") {
       for (var i = 0; i < input.length; i++) {
-        if (input[i].age >= 2) {
+        if (input[i].sex === sex) {
           output.push(input[i]);
         }
        }

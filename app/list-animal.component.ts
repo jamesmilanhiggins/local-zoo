@@ -5,17 +5,20 @@ import { Animal } from './animal.model';
   selector: 'list-animal',
   template:`
   <h1>Animals ROUTE 4444TEST</h1>
+  <label>Filter Animals by Age</label>
   <select (change)="onChangeAge($event.target.value)">
     <option value="allAges" selected="selected"> All Ages</option>
     <option value="youngAnimals">Young Animals</option>
     <option value="matureAnimals">Mature</option>
   </select>
+  <label>Filter Animals by Gender</label>
+  <select (change)="onChangeSex($event.target.value)">
+    <option value="allGenders" selected="selected"> All Genders</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
 
-
-
-
-
-  <div *ngFor="let animal of childAnimals | age:filterByAge">
+  <div *ngFor="let animal of childAnimals | age:filterByAge | sex:filterBySex">
    <h2> Animal Details</h2>
    <p>{{animal.species}}</p>
    <p>{{animal.name}}</p>
@@ -39,6 +42,7 @@ export class ListAnimalComponent {
   @Output() deleteAnimalSender = new EventEmitter;
 
 filterByAge: string = "allAges";
+filterBySex: string = "allGenders";
 
   editAnimal(animal) {
     this.editAnimalSender.emit(animal);
@@ -48,6 +52,9 @@ filterByAge: string = "allAges";
   }
   onChangeAge(optionFromMenu) {
     this.filterByAge = optionFromMenu;
+  }
+  onChangeSex(optionFromMenu) {
+    this.filterBySex = optionFromMenu;
   }
 
 

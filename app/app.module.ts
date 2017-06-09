@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }  from '@angular/forms';
 
 import { AnimalAgePipe } from './animal-age.pipe';
+import { SexPipe } from './sex.pipe';
 
 import { AppComponent } from './app.component';
 import { ListAnimalComponent } from './list-animal.component';
@@ -12,7 +13,7 @@ import { NewAnimalComponent } from './new-animal.component';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, ListAnimalComponent, EditAnimalComponent, NewAnimalComponent, AnimalAgePipe],
+  declarations: [ AppComponent, ListAnimalComponent, EditAnimalComponent, NewAnimalComponent, AnimalAgePipe, SexPipe],
   bootstrap: [ AppComponent ]
 })
 
