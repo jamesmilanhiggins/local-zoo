@@ -4,7 +4,9 @@ import { Animal } from './animal.model';
 @Component({
   selector: 'app-root',
   template: `
+  <div class="jumbotron">
    <h1>The Epicodus Zoo</h1>
+  </div>
    <new-animal (newAnimalSender)="storeNewAnimal($event)"></new-animal>
    <hr>
    <edit-animal *ngIf="edit" [childAnimal]="selectedAnimal"></edit-animal>

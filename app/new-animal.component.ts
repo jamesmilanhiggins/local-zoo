@@ -6,6 +6,7 @@ import { Animal } from './animal.model';
   template: `
 
   <div class="new-animal-form">
+  <h3>Add a New Animal</h3>
     <label>Species:</label>
     <input class="form-control" #newSpecies type="text">
     <label>Name:</label>
@@ -24,7 +25,7 @@ import { Animal } from './animal.model';
     <input class="form-control" #newLike>
     <label>Dislike:</label>
     <input class="form-control" #newDislike><br>
-    <button class="btn btn-primary btn-sm"(click)="createAnimal(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretaker.value, newSex.value, newLike.value, newDislike.value)"> Add Animal</button><hr>
+    <button class="btn btn-primary"(click)="createAnimal(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretaker.value, newSex.value, newLike.value, newDislike.value)"> Add Animal</button>
   </div>
   `
 })

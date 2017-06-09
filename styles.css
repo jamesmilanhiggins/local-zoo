@@ -1,11 +1,28 @@
 body {
   text-align: center;
+  background-color: #A6ECE0;
 }
 
+.jumbotron {
+  background-color: #7ADFBB;
+}
 
 .animal-div {
+  background-color: #7ADFBB;
+  padding-left: : 20%;
+  padding-right: : 20%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left:20%;
+  margin-right:20%;
+  padding-top:7px;
+  border-radius: 15px;
 }
 .new-animal-form {
-  padding-left:20%;
-  padding-right:20%;
+  margin-left:20%;
+  margin-right:20%;
+}
+
+p {
+  font-size: 16px;
 }

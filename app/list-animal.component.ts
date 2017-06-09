@@ -16,20 +16,23 @@ import { Animal } from './animal.model';
     <option value="male">Male</option>
     <option value="female">Female</option>
   </select>
+  <label>Feature Certain Animals</label>
+
   <select (change)="onChangeFeatured($event.target.value)">
     <option value="allAnimals" selected="selected">All Animals</option>
     <option value="featuredAnimals">Featured Animals</option>
     <option value="nonfeaturedAnimals">Non-Featured Animals</option>
   </select>
-  <div class="animal-div">
-    <div *ngFor="let animal of childAnimals | age:filterByAge | sex:filterBySex | featured:filterByFeatured" >
-     <h2> Animal Details</h2>
-     <label>Click to feature this animal</label>
+
+  <div *ngFor="let animal of childAnimals | age:filterByAge | sex:filterBySex | featured:filterByFeatured" >
+    <div class="animal-div">
+
+
+     <h3>Name: {{animal.name}}</h3>
+     <label>Check to feature this animal</label>
      <input *ngIf="animal.featured === true" type="checkbox" checked (click)="toggleFeatured(animal, false)"/>
      <input *ngIf="animal.featured === false" type="checkbox" (click)="toggleFeatured(animal, true)"/>
-
      <p>Species: {{animal.species}}</p>
-     <p>Name: {{animal.name}}</p>
      <p>Age: {{animal.age}}</p>
      <p>Diet: {{animal.diet}}</p>
      <p>Location in the Zoo: {{animal.location}}</p>
@@ -39,10 +42,11 @@ import { Animal } from './animal.model';
      <p>Dislikes: {{animal.dislike}}</p>
      <button class=" btn btn-warning btn-sm"(click)="editAnimal(animal)">Edit Animal</button>
      <button class="btn btn-danger btn-sm" (click)="deleteAnimal(animal)">Delete Animal</button>
+     <hr>
    </div>
    <br>
-   <hr>
-  </div>
+
+</div>
 
   `
 })
